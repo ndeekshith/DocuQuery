@@ -1,0 +1,11 @@
+streamlit
+langchain
+langchain-community
+langchain-huggingface  # For HuggingFaceEmbeddings
+langchain-ollama       # For Ollama LLM integration
+pypdf                # For PDF loading
+python-docx          # For DOCX loading (used by UnstructuredWordDocumentLoader)
+unstructured         # For robust DOCX/PDF parsing (dependency of some loaders)
+faiss-cpu            # Vector store (use faiss-gpu if you have a compatible NVIDIA GPU and CUDA)
+sentence-transformers # For local embedding models
+tiktoken             # Tokenizer used by LangChain

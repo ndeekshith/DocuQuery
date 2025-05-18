@@ -1,0 +1,76 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+.venv.bak/
+
+# Environment variable files
+.env
+.env.*
+
+# Bytecode and logs
+*.log
+*.pot
+*.pyc
+*.pyo
+
+# Cache and test artifacts
+.pytest_cache/
+.mypy_cache/
+.dmypy.json
+.cache/
+coverage.*
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+htmlcov/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# IDE files
+.vscode/
+.idea/
+
+# macOS
+.DS_Store
+
+# Build/dist
+build/
+dist/
+*.egg-info/
+.eggs/
+*.manifest
+*.spec
+
+# FAISS index files (optional: if you generate FAISS index locally)
+*.faiss
+
+# LangChain vector stores / databases
+*.db
+*.sqlite
+*.pkl
+
+# Unstructured intermediate outputs (optional, if used)
+*.jsonl
+*.tmp
+*.cache
+
+# Streamlit cache
+.streamlit/
+__pycache__/
+
+# PDF/DOCX temp files
+*.pdf~
+*.docx~
+~$*.docx
+venv/
