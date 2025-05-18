@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="assets/logo.png" alt="DocuQuery Banner" width="600"/>
+</p>
+
 # 📄 DocuQuery - Local Document Q\&A with Ollama + FAISS
 
 **DocuQuery** is a local-first, privacy-focused document-based Q\&A assistant built using:
