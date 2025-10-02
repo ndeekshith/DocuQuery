@@ -1,0 +1,77 @@
+# DocuQuery Configuration File
+
+# Ollama Configuration
+ollama:
+  base_url: "http://localhost:11434"
+  default_model: "phi3:3.8b-mini-4k-instruct-q5_K_M"
+  temperature: 0.2
+  timeout: 120
+
+# Embedding Configuration
+embeddings:
+  model_name: "sentence-transformers/all-MiniLM-L6-v2"
+  cache_folder: "./models/embeddings"
+
+# Vector Store Configuration
+vectorstore:
+  type: "faiss"
+  persist_directory: "./data/vectorstore"
+  use_ivf_index: false  # Set to true for large datasets (>100k docs)
+  ivf_nlist: 100  # Number of clusters for IVF index
+  search_k: 5  # Number of documents to retrieve
+
+# Document Processing Configuration
+document_processing:
+  chunk_size: 1000
+  chunk_overlap: 200
+  temp_directory: "./data/temp_docs"
+  supported_formats:
+    - pdf
+    - docx
+    - txt
+    - md
+    - csv
+    - html
+    - rtf
+  batch_size: 10  # Process documents in batches
+  enable_preview: true
+  preview_length: 500  # Characters to show in preview
+
+# Search Configuration
+search:
+  hybrid_search: true  # Combine semantic + BM25
+  use_reranker: true
+  reranker_model: "cross-encoder/ms-marco-MiniLM-L-6-v2"
+  semantic_weight: 0.7  # Weight for semantic search (1-semantic_weight for BM25)
+  top_k_retrieval: 10  # Initial retrieval count
+  top_k_rerank: 5  # Final count after reranking
+
+# UI Configuration
+ui:
+  page_title: "DocuQuery - Advanced Document Q&A"
+  page_icon: "📄"
+  layout: "wide"
+  enable_dark_mode: true
+  default_theme: "light"
+  streaming_enabled: true
+  show_source_highlighting: true
+
+# Performance Configuration
+performance:
+  enable_async: true
+  max_workers: 4
+  cache_embeddings: true
+  embedding_cache_dir: "./data/embedding_cache"
+
+# Logging Configuration
+logging:
+  level: "INFO"  # DEBUG, INFO, WARNING, ERROR, CRITICAL
+  file: "./logs/docuquery.log"
+  max_bytes: 10485760  # 10MB
+  backup_count: 5
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+
+# Database Configuration (for document metadata)
+database:
+  type: "sqlite"
+  path: "./data/documents.db"

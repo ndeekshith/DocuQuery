@@ -1,0 +1,38 @@
+version: '3.8'
+
+services:
+  docuquery:
+    build: .
+    container_name: docuquery
+    ports:
+      - "8501:8501"
+    volumes:
+      - ./data:/app/data
+      - ./logs:/app/logs
+      - ./models:/app/models
+    environment:
+      - CUDA_VISIBLE_DEVICES=
+      - TORCH_USE_CUDA_DSA=0
+    restart: unless-stopped
+    networks:
+      - docuquery-network
+    depends_on:
+      - ollama
+
+  ollama:
+    image: ollama/ollama:latest
+    container_name: ollama
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama-data:/root/.ollama
+    restart: unless-stopped
+    networks:
+      - docuquery-network
+
+volumes:
+  ollama-data:
+
+networks:
+  docuquery-network:
+    driver: bridge

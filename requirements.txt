@@ -1,11 +1,35 @@
-streamlit
-langchain
-langchain-community
-langchain-huggingface  # For HuggingFaceEmbeddings
-langchain-ollama       # For Ollama LLM integration
-pypdf                # For PDF loading
-python-docx          # For DOCX loading (used by UnstructuredWordDocumentLoader)
-unstructured         # For robust DOCX/PDF parsing (dependency of some loaders)
-faiss-cpu            # Vector store (use faiss-gpu if you have a compatible NVIDIA GPU and CUDA)
-sentence-transformers # For local embedding models
-tiktoken             # Tokenizer used by LangChain
+streamlit>=1.28.0
+langchain>=0.1.0
+langchain-community>=0.0.20
+langchain-huggingface>=0.0.1
+langchain-ollama>=0.1.0
+pypdf>=3.17.0
+python-docx>=1.1.0
+unstructured>=0.11.0
+faiss-cpu>=1.7.4
+sentence-transformers>=2.2.2
+tiktoken>=0.5.1
+requests>=2.31.0
+pyyaml>=6.0.1
+pysqlite3-binary>=0.5.3
+
+# Additional file format support
+markdown>=3.5
+beautifulsoup4>=4.12.0
+lxml>=4.9.3
+striprtf>=0.0.26
+
+# Search enhancements
+rank-bm25>=0.2.2
+
+# Performance
+aiofiles>=23.2.1
+
+# Testing
+pytest>=7.4.0
+pytest-asyncio>=0.21.0
+pytest-cov>=4.1.0
+
+# Development
+black>=23.0.0
+flake8>=6.1.0
