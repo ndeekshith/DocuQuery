@@ -169,8 +169,7 @@ Answer:"""
         highlighted = text
         
         for word in words:
-            if len(word) > 3:  # Only highlight words longer than 3 chars
-                # Case-insensitive replacement with HTML highlighting
+            if len(word) > 3: 
                 import re
                 pattern = re.compile(re.escape(word), re.IGNORECASE)
                 highlighted = pattern.sub(

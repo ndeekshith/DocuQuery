@@ -1,12 +1,12 @@
 """Database management for document metadata."""
 
-# Robust import: prefer stdlib sqlite3; if missing _sqlite3 binding, fall back to pysqlite3
+
 try:
-    import sqlite3  # type: ignore
-except ModuleNotFoundError:  # pragma: no cover - environment specific
+    import sqlite3 
+except ModuleNotFoundError:  
     try:
-        from pysqlite3 import dbapi2 as sqlite3  # type: ignore
-    except Exception as exc:  # pragma: no cover
+        from pysqlite3 import dbapi2 as sqlite3  
+    except Exception as exc:  
         raise ModuleNotFoundError(
             "sqlite3 module is unavailable and pysqlite3 fallback failed."
         ) from exc

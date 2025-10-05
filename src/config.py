@@ -10,10 +10,6 @@ class Config:
     """Configuration manager that loads settings from config.yaml."""
     
     def __init__(self, config_path: Optional[str] = "config.yaml"):
-        # Resolve config path with the following priority:
-        # 1) Explicit path if it exists
-        # 2) Project root (parent of this file's directory) / config.yaml
-        # 3) Current working directory / config.yaml
         proposed_path = Path(config_path) if config_path else Path("config.yaml")
         if proposed_path.is_absolute() and proposed_path.exists():
             self.config_path = proposed_path
@@ -30,7 +26,7 @@ class Config:
                 if cwd_candidate.exists():
                     self.config_path = cwd_candidate
                 else:
-                    # Keep proposed for clearer error below
+            
                     self.config_path = proposed_path
         
         self._config: Dict[str, Any] = {}
@@ -115,5 +111,5 @@ class Config:
         return type('DatabaseConfig', (), self._config.get('database', {}))()
 
 
-# Global config instance
+
 config = Config()
